@@ -1,19 +1,25 @@
 {
   "manifest_version": 3,
-  "name": "AI Page Summarizer - GlobSoft",
+  "name": "AI YouTube Tutor - Summarizer & Quiz Generator",
   "version": "1.0",
-  "description": "Summarize any webpage using Google's Gemini API.",
-  "permissions": ["activeTab", "scripting"],
-  "host_permissions": ["<all_urls>"],
+  "description": "Enhance YouTube learning with AI-powered summaries, quizzes, and tutoring using Gemini API. Perfect for students & educators!",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["https://*.youtube.com/*"],
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
-      "16": "icon.png",
-      "48": "icon.png",
-      "128": "icon.png"
-    }
+      "16": "assets/icon.png",
+      "48": "assets/icon.png",
+      "128": "assets/icon.png"
+    },
+    "default_title": "AI YouTube Tutor"
   },
   "background": {
     "service_worker": "background.js"
+  },
+  "icons": {
+    "16": "assets/icon.png",
+      "48": "assets/icon.png",
+      "128": "assets/icon.png"
   }
 }

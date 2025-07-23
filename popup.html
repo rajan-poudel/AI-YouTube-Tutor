@@ -1,34 +1,119 @@
 <!DOCTYPE html>
-<html lang="en">
-  
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>AI YouTube Tutor</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Summarize Page</title>
+  <link href="https://fonts.googleapis.com/css?family=Inter:400,600&display=swap" rel="stylesheet">
+  <style>
+    /* GlobSoft Themed Colors */
+    :root {
+      --gs-primary: #0057b8;
+      --gs-primary-light: #4f8cff;
+      --gs-accent: #00b894;
+      --gs-bg: #f4f8fb;
+      --gs-bg-gradient: linear-gradient(135deg, #f4f8fb 0%, #e3f0ff 100%);
+      --gs-card-bg: #fff;
+      --gs-text: #1a2233;
+      --gs-muted: #6c7a89;
+      --gs-shadow: 0 4px 24px rgba(0,87,184,0.10);
+    }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--gs-bg-gradient);
+      margin: 0;
+      padding: 32px 18px 24px 18px;
+      min-width: 340px;
+      min-height: 340px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+    h1 {
+      margin-top: 0;
+      margin-bottom: 24px;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--gs-primary);
+      letter-spacing: -1px;
+      text-align: center;
+      padding: 0 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    #summarizeBtn {
+      background: linear-gradient(90deg, var(--gs-primary) 0%, var(--gs-primary-light) 100%);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 16px 44px;
+      font-size: 1.15rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: var(--gs-shadow);
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      margin-bottom: 28px;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    #summarizeBtn:hover {
+      background: linear-gradient(90deg, var(--gs-primary-light) 0%, var(--gs-primary) 100%);
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 8px 32px rgba(0,87,184,0.13);
+    }
+    #summary {
+      width: 96%;
+      max-width: 300px;
+      min-height: 100px;
+      background: var(--gs-card-bg);
+      border-radius: 22px;
+      box-shadow: var(--gs-shadow);
+      padding: 28px 50px;
+      margin: 0 auto 24px auto;
+      font-size: 1.07rem;
+      color: var(--gs-text);
+      line-height: 1.7;
+      word-break: break-word;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: box-shadow 0.2s;
+      border: 1.5px solid #e3f0ff;
+    }
+    #summary:empty::before {
+      content: "Your summary will appear here.";
+      color: var(--gs-muted);
+      font-style: italic;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+    @media (max-width: 400px) {
+      h1 { font-size: 1.25rem; }
+      #summary { font-size: 0.98rem; padding: 16px 8px; }
+      #summarizeBtn { padding: 12px 18px; font-size: 1rem; }
+      body { padding: 18px 4px 12px 4px; }
+    }
+  </style>
 </head>
-
-  
 <body>
-  <header>
-    <h1>AI YouTube Tutor</h1>
-  </header>
-
-  <section class="actions" role="region" aria-label="Actions">
-    <button id="summarizeBtn" aria-describedby="summarizeDesc" type="button">
-      Get Summary
-    </button>
-    <button id="quizBtn" aria-describedby="quizDesc" type="button">
-      Generate Quiz
-    </button>
-  </section>
-
-  <p id="loading" role="status" aria-live="polite">Loading...</p>
-
-  <section id="output" role="region" aria-live="polite" aria-label="Output results">
-    <!-- Summary or quiz output appears here -->
-  </section>
-
-  <script src="popup.js" defer></script>
+  <h1>
+    <img src="assets/icon.png" alt="Logo" width="28" height="28" style="vertical-align:middle;">
+    AI YouTube Tutor
+  </h1>
+  <button id="themeToggleBtn" style="position:absolute;top:18px;right:18px;background:none;border:none;cursor:pointer;" title="Toggle light/dark mode">
+    <svg id="themeIcon" width="24" height="24" fill="none" viewBox="0 0 24 24"></svg>
+      <path id="sunIcon" d="M12 4V2m0 20v-2m8-8h2M2 12H4m15.07 7.07l1.41 1.41M4.93 4.93L3.51 3.51m0 16.98l1.42-1.42M19.07 4.93l1.41-1.41M12 8a4 4 0 100 8 4 4 0 000-8z" stroke="#0057b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path id="moonIcon" d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" stroke="#0057b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none"/>
+    </svg>
+  </button>
+  <button id="summarizeBtn">
+    <svg width="20" height="20" fill="none" style="vertical-align:middle;" viewBox="0 0 24 24"><path fill="#fff" d="M5 13v-2h8V7l5 5-5 5v-4z"></path></svg>
+    Summarize Page
+  </button>
+  <div id="summary"></div>
+  <script src="popup.js"></script>
 </body>
 </html>
