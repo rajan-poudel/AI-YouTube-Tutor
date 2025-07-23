@@ -1,6 +1,5 @@
 # AI-YouTube-Tutor
 Welcome to the official GitHub Repo for AI YouTube Tutor, the ultimate Chrome extension that enhances your YouTube learning experience with AI-powered summaries, quizzes, and personalized tutoring!
-Got you — here’s a **short and clear guide** your friend can follow to build the **AI YouTube Tutor Chrome Extension** like a pro:
 
 ---
 
