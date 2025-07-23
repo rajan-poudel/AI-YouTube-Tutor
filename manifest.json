@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "AI Page Summarizer - GlobSoft",
+  "version": "1.0",
+  "description": "Summarize any webpage using Google's Gemini API.",
+  "permissions": ["activeTab", "scripting"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon.png",
+      "48": "icon.png",
+      "128": "icon.png"
+    }
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
