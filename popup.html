@@ -2,40 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>AI YouTube Tutor</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="container">
-    <h1>🎓 AI YouTube Tutor</h1>
+    <header>
+      <h1>🎓 AI YouTube Tutor</h1>
+    </header>
 
-    <div class="section">
-      <h2>🎥 Video Title</h2>
-      <p id="video-title">Loading...</p>
-    </div>
+    <section class="video-title">
+      <strong>🎥 Title:</strong>
+      <p id="videoTitle">Loading video title...</p>
+    </section>
 
-    <div class="section">
-      <h2>💡 Explanation</h2>
-      <p id="explanation">Loading...</p>
-    </div>
+    <section class="summary-section">
+      <strong>📄 Summary:</strong>
+      <p id="summaryPreview" class="summary-preview" tabindex="0">
+        Click to expand summary...
+      </p>
+    </section>
 
-    <div class="section">
-      <h2>🧠 Summary</h2>
-      <p id="summary">Loading...</p>
-    </div>
+    <button id="startQuizBtn" class="btn btn-primary">🧪 Start Quiz</button>
 
-    <div class="section">
-      <h2>📝 Quiz</h2>
-      <ul id="quiz">
-        <li>Loading...</li>
+    <section class="topics-section">
+      <strong>📚 Topics Covered:</strong>
+      <ul id="topicsList" class="topics-list">
+        <li>Loading topics...</li>
       </ul>
-    </div>
+    </section>
+  </div>
 
-    <div class="buttons">
-      <button id="regenerate">🔁 Regenerate</button>
-      <button id="quiz-me">🧪 Quiz Me</button>
+  <!-- Modal for full summary -->
+  <div id="summaryModal" class="modal">
+    <div class="modal-content">
+      <button id="closeModal" class="close-btn" aria-label="Close summary">&times;</button>
+      <h2>📄 Full Summary</h2>
+      <p id="summaryFull">Loading full summary...</p>
     </div>
+  </div>
+
+  <!-- Quiz section hidden by default -->
+  <div id="quizSection" class="quiz-section hidden">
+    <h2>📝 Quiz</h2>
+    <div id="quizContainer">
+      <!-- Quiz questions will be injected here -->
+    </div>
+    <button id="closeQuizBtn" class="btn btn-secondary">Close Quiz</button>
   </div>
 
   <script src="popup.js"></script>
