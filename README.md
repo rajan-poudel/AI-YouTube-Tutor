@@ -84,11 +84,3 @@ Turn any YouTube video into a **smart learning assistant** with:
 * Add “Pro” version later
 
 ---
-
-If your friend wants:
-✅ Starter code,
-✅ Prompt templates,
-✅ Folder structure,
-✅ Demo UI...
-
-Just say the word — I’ll send everything.
